@@ -1,11 +1,38 @@
 /********** Template CSS **********/
 :root {
-    --primary: #009CFF;
-    --secondary: #777777;
-    --light: #F8F8F8;
-    --dark: #252525;
+    --bs-primary: rgb(16, 28, 50);
+    --bs-secondary: #c17e0a;
+    --bs-try: #3a1ad8;
+    --bs-success: #28a745;
+    --bs-danger: #e63946;
+    --bs-warning: #f4a261;
+    --bs-info: #2a9d8f;
+    --bs-light: #f8f8fb;
+    --bs-dark: #010516;
+  }
+  html, body {
+    height: 100%;
+    margin: 0; /* Removes any default margin */
+  }
+  
+  
+/* You can also force button and other component color overrides if needed */
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
 }
 
+.btn-primary:hover {
+  background-color: #b25205;
+  border-color: #a74a04;
+}
+
+.navbar {
+  background-color: var(--bs-primary);
+}
+
+  
+  
 .back-to-top {
     position: fixed;
     display: none;
@@ -86,7 +113,7 @@
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: var(--dark);
+    color: #f4b400;
 }
 
 .navbar.sticky-top {
@@ -227,7 +254,7 @@
     left: 3rem;
     width: calc(100% - 3rem);
     height: calc(100% - 3rem);
-    object-fit: cover;
+  
     border-radius: 6px;
 }
 
@@ -256,7 +283,13 @@
     box-shadow: none;
     border: 1px solid #DEE2E6;
 }
-
+.service-item img {
+    width: 100%;                /* Makes image fill container width */
+    height: 250px;              /* Set a fixed height */
+    object-fit: cover;          /* Ensures image fills area without stretching */
+    border-radius: 50px;        /* Optional: Keep rounded corners consistent */
+  }
+  
 
 /*** Feature ***/
 .progress {
@@ -321,8 +354,29 @@
 /*** Team ***/
 .team-item {
     box-shadow: 0 0 45px rgba(0, 0, 0, .07);
+  
+}
+.team-item img {
+    width: 300px;
+    height: 300px;
+    object-fit:cover;
+    border-radius: 10%;
+      /* Ensures it’s circular */
 }
 
+
+
+.team-item img.img-indhu {
+    object-position: top center ;  /* Focus the center of the image */
+   height: 370px; aspect-ratio: 1 / 1;
+                     object-position: top; 
+               
+}
+
+.team-item img.img-naveen {
+    height: 370px; aspect-ratio: 1 / 1;
+                     object-position: top; 
+}
 .team-item .team-text {
     position: relative;
     height: 65px;
@@ -422,20 +476,43 @@
     margin-bottom: 5px;
     padding: 0;
     text-align: left;
-    color: var(--secondary);
+    color: var(--light);
     font-weight: normal;
     text-transform: capitalize;
     transition: .3s;
 }
 
+
+  /* Normal icon color */
+.footer .btn-outline-secondary i {
+    color: #f4b400; /* gold or your base color */
+    transition: color 0.3s ease;
+  }
+  
+  /* Icon color on hover */
+  .footer .btn-outline-secondary:hover i {
+    color: #fff /* white or any hover color */
+  }
+
+  .footer .btn-outline-secondary:hover {
+    background-color: #a018bf; /* gold background */
+    border-color: #f4b400;
+  }
+    
 .footer .btn.btn-link::before {
     position: relative;
     content: "\f105";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    color: var(--secondary);
+    color:#3a1ad8;
     margin-right: 10px;
 }
+.footer .text-center p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #e81b1b;
+  }
+  
 
 .footer .btn.btn-link:hover {
     color: var(--primary);
@@ -443,6 +520,19 @@
     box-shadow: none;
 }
 
+
+.footer .btn.btn-primary {
+    background-color: rgb(121, 138, 245); /* a nice gold shade */
+    border-color: #f4b400;
+    color: #fff; /* black text for contrast */
+  }
+  
+  .footer .btn.btn-primary:hover {
+    background-color: #e09c00; /* darker gold for hover */
+    border-color: #e09c00;
+    color: #fff; /* white text on hover */
+  }
+  
 .footer .copyright {
     padding: 25px 0;
     font-size: 15px;
@@ -456,3 +546,174 @@
 .footer .copyright a:hover {
     color: var(--primary);
 }
+/* ============ Hero Section Styles ============ */
+.section.hero-started {
+    position: relative;
+    text-align: left;
+    background: #fbf8f8;
+    color: #010516;
+    overflow: hidden;
+    padding-bottom: 22px; /* Ensure the footer does not get pushed */
+    margin-bottom: 0;     /* Avoid pushing footer */
+}
+
+.section.hero-started .content {
+    display: flex; /* Flex layout to keep content and image side by side */
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding-top: 140px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    flex-wrap: nowrap; /* Prevent wrapping of items */
+}
+
+.section.hero-started .titles,
+.section.hero-started .description,
+.section.hero-started .bts {
+    flex: 1 1 20%;
+    text-align: left;
+}
+
+.section.hero-started .titles {
+    margin-bottom: 40px;
+}
+
+.section.hero-started .label strong {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+  
+    border-radius: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+   
+}
+.section.hero-started .label {
+    margin-top: 0; /* Remove any top margin */
+}
+
+
+.section.hero-started .title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 75px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin:0;
+    letter-spacing: 0.02em;
+    color: #db7c2f;
+    text-transform: none;
+    text-shadow: none;
+}
+
+
+.section.hero-started .description {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0;
+    opacity: 0.9;
+    padding: 10px 0;
+}
+
+.section.hero-started .bts .btn {
+    background-color: #758BFD;
+    color: #fff;
+    padding: 14px 32px;
+    font-size: 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+/* Align buttons side by side */
+.section.hero-started .bts-container {
+    display: flex;
+  
+    align-items: center;
+}
+
+
+.section.hero-started .bts .btn:hover {
+    background-color: #5a6edb;
+}
+
+.section.hero-started .social-links {
+    margin-top: 30px;
+    text-align: center; /* Centers the button */
+}
+
+/* Slide / Circle Decorations */
+.section.hero-started .slide {
+    flex: 1 1 50%; /* Ensures the slide takes 50% of the space */
+    position: relative;
+    z-index: 2;
+   
+}
+
+.section.hero-started .slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 10;
+  
+}
+
+
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+    .section.hero-started .content {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 100px;
+    }
+
+    .section.hero-started .title {
+        font-size: 42px;
+        text-align: center;
+    }
+
+    .section.hero-started .description,
+    .section.hero-started .titles,
+    .section.hero-started .bts {
+        text-align: center;
+        flex: 1 1 100%;
+    }
+
+    .section.hero-started .bts-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .section.hero-started .slide {
+        width: 320px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .section.hero-started .circle.circle-1 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .section.hero-started .circle.img-1,
+    .section.hero-started .circle.img-2,
+    .section.hero-started .circle.img-3 {
+        display: none;
+    }
+}
+body {
+    overflow-x: hidden;
+   
+  }
+  
+   .footer {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
