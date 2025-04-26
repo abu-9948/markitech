@@ -151,7 +151,33 @@
         opacity: 1;
     }
 }
+/* About Section Images */
+.about-main {
+    max-width: 90%;
+    height: auto;
+}
 
+.about-logo {
+    max-width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+/* About Section Main Image */
+.about-main {
+    width: 100%;
+   
+    height: auto;
+}
+
+/* For Mobile and Tablet */
+@media (max-width: 768px) {
+    .about-main {
+        max-width: 350px;
+    }
+    .about-logo {
+        max-width: 80%;
+    }
+}
 
 
 
@@ -271,25 +297,34 @@
 }
 
 
-/*** Service ***/
-.service-item {
-    box-shadow: 0 0 45px rgba(0, 0, 0, .07);
-    border: 1px solid transparent;
-    transition: .5s;
+
+  /* General style for all service images */
+.service-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
 }
 
-.service-item:hover {
-    margin-top: -10px;
-    box-shadow: none;
-    border: 1px solid #DEE2E6;
+/* Hover effect (optional, for better interactivity) */
+.service-item:hover img {
+    transform: scale(1.05);
 }
-.service-item img {
-    width: 100%;                /* Makes image fill container width */
-    height: 250px;              /* Set a fixed height */
-    object-fit: cover;          /* Ensures image fills area without stretching */
-    border-radius: 50px;        /* Optional: Keep rounded corners consistent */
-  }
-  
+
+/* Responsive tweaks for tablets and mobile */
+@media (max-width: 768px) {
+    .service-item img {
+        height: 200px; /* Slightly smaller height for tablets/mobiles */
+    }
+}
+
+@media (max-width: 576px) {
+    .service-item img {
+        height: 180px; /* Further smaller for very small screens */
+    }
+}
+
 
 /*** Feature ***/
 .progress {
@@ -469,8 +504,6 @@
     background: var(--primary);
 }
 
-
-/*** Footer ***/
 .footer .btn.btn-link {
     display: block;
     margin-bottom: 5px;
@@ -482,37 +515,36 @@
     transition: .3s;
 }
 
-
-  /* Normal icon color */
+/* Normal icon color */
 .footer .btn-outline-secondary i {
-    color: #f4b400; /* gold or your base color */
+    color: #f4b400;
     transition: color 0.3s ease;
-  }
-  
-  /* Icon color on hover */
-  .footer .btn-outline-secondary:hover i {
-    color: #fff /* white or any hover color */
-  }
+}
 
-  .footer .btn-outline-secondary:hover {
-    background-color: #a018bf; /* gold background */
+/* Icon color on hover */
+.footer .btn-outline-secondary:hover i {
+    color: #fff;
+}
+
+.footer .btn-outline-secondary:hover {
+    background-color: #a018bf;
     border-color: #f4b400;
-  }
-    
+}
+
 .footer .btn.btn-link::before {
     position: relative;
     content: "\f105";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    color:#3a1ad8;
+    color: #3a1ad8;
     margin-right: 10px;
 }
+
 .footer .text-center p {
     margin-top: 10px;
     font-size: 14px;
     color: #e81b1b;
-  }
-  
+}
 
 .footer .btn.btn-link:hover {
     color: var(--primary);
@@ -520,19 +552,18 @@
     box-shadow: none;
 }
 
-
 .footer .btn.btn-primary {
-    background-color: rgb(121, 138, 245); /* a nice gold shade */
+    background-color: rgb(121, 138, 245);
     border-color: #f4b400;
-    color: #fff; /* black text for contrast */
-  }
-  
-  .footer .btn.btn-primary:hover {
-    background-color: #e09c00; /* darker gold for hover */
+    color: #fff;
+}
+
+.footer .btn.btn-primary:hover {
+    background-color: #e09c00;
     border-color: #e09c00;
-    color: #fff; /* white text on hover */
-  }
-  
+    color: #fff;
+}
+
 .footer .copyright {
     padding: 25px 0;
     font-size: 15px;
@@ -546,6 +577,38 @@
 .footer .copyright a:hover {
     color: var(--primary);
 }
+
+/* ------------------ */
+/* Responsive Footer   */
+/* ------------------ */
+@media (max-width: 768px) {
+    .footer-left, .footer-center, .footer-right {
+      flex: 1 1 100%;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  
+    .footer .d-flex {
+      flex-direction: row; /* stay in row */
+      flex-wrap: wrap;     /* allow wrapping */
+      justify-content: center; /* center all footer parts */
+      align-items: center;
+    }
+  
+    .footer-right {
+      display: flex;
+      flex-direction: row; /* social icons in one row */
+      justify-content: center; /* center inside their block */
+      gap: 10px;
+      margin-top: 10px;
+    }
+  
+    .footer .btn.btn-primary {
+      margin-bottom: 10px;
+    }
+  }
+  
+  
 /* ============ Hero Section Styles ============ */
 .section.hero-started {
     position: relative;
@@ -573,7 +636,7 @@
 .section.hero-started .titles,
 .section.hero-started .description,
 .section.hero-started .bts {
-    flex: 1 1 20%;
+    flex: 1 1 10%;
     text-align: left;
 }
 
@@ -664,7 +727,6 @@
 }
 
 
-
 /* Responsive Layout */
 @media screen and (max-width: 768px) {
     .section.hero-started .content {
@@ -688,12 +750,22 @@
     .section.hero-started .bts-container {
         flex-direction: column;
         gap: 15px;
+        align-items: center; /* center buttons vertically too */
     }
 
     .section.hero-started .slide {
-        width: 320px;
-        height: 400px;
+        width: 100%; /* make it responsive */
+        max-width: 320px; /* but not wider than 320px */
+        height: auto; /* let height adjust automatically */
         margin: 0 auto;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .section.hero-started .slide img {
+        width: 100%;
+        height: auto;
+        display: block;
     }
 
     .section.hero-started .circle.circle-1 {
@@ -707,10 +779,7 @@
         display: none;
     }
 }
-body {
-    overflow-x: hidden;
-   
-  }
+
   
    .footer {
     margin-bottom: 0 !important;
