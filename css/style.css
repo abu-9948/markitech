@@ -10,11 +10,7 @@
     --bs-light: #f8f8fb;
     --bs-dark: #010516;
   }
-  html, body {
-    height: 100%;
-    margin: 0; /* Removes any default margin */
-  }
-  
+ 
   
 /* You can also force button and other component color overrides if needed */
 .btn-primary {
@@ -881,8 +877,8 @@
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
     
-        margin: 0;
-        padding-bottom: 0;
+ 
+      
       }
       
   
@@ -892,12 +888,8 @@
         padding: 0;
     }
     
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-    
+ 
+  
     .page-wrapper {
         flex: 1;
     }
